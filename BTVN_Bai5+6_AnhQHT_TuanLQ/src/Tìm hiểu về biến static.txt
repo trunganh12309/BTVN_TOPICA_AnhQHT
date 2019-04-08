@@ -1,0 +1,4 @@
+﻿Biến static:
+Biến static được khởi tạo một lần duy nhất ngay khi biên dịch chương trình, chỉ được cấp phát 1 ô nhớ duy nhất, ô nhớ đó
+thuộc vùng data segment (cùng với text/code segment là 2 nơi mà khi chương trình thực thi sẽ được cấp một vùng nhớ không đổi)
+và biến static được huỷ khi chương trình kết thúc.

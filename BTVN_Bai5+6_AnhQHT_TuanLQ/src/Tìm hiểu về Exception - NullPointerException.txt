@@ -1,0 +1,4 @@
+﻿Tìm hiểu về Exception: NullPointerException
+Ngoại lệ này thuộc loại unchecked exception, kế thừa từ RuntimeException và được kiểm tra tại runtime. Trường hợp xảy ra
+ngoại lệ NullPointerException là khi chúng ta thực hiện trỏ tới 1 Object có giá trị null. Để đề phòng ngoại lệ này xảy ra
+chúng ta có thể dùng if để kiểm tra xem Object có null hay không rồi sau đó thực hiện hàm.

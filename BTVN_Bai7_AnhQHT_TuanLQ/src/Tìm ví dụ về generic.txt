@@ -1,0 +1,6 @@
+﻿Ví dụ về Generic:
+ - import java.lang.Comparable: là một interface (public interface Comparable<T>) sử dụng generic của thư viện java.lang 
+dùng để so sánh, có phương thức public int compareTo(T o) với o là đối tượng so sánh, hàm trả ra là 1 số kiểu int với giá
+trị < 0 nghĩa là bé hơn, = 0 là bằng nhau, > 0 là lớn hơn. Một list hoặc một array có thể được sắp xếp bởi phương Collection.sort
+(hoặc Array.sort) nếu implement interface này. Và Comparable là một thành viên của Java Collections Framework (framework sử
+dụng generic).

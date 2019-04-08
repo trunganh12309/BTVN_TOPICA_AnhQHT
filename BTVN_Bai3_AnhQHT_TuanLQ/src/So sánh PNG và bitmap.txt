@@ -1,0 +1,20 @@
+﻿* Dung lượng ảnh 10x10:
+bitmap16color: 198 bytes
+bitmap256color: 1,16KB
+bitmap24bit: 374 bytes
+PNG: 822 bytes
+-> So sánh: bitmap256color > PNG > bitmap24bit > bitmap16color
+
+* Dung lượng ảnh 10000x10000:
+bitmap16color: 47,6MB
+bitmap256color: 95,3MB
+bitmap24bit: 286MB
+PNG: 536KB
+-> So sánh: bitmap24bit > bitmap256color > bitmap16color >>> PNG
+
+* Kết luận: Với ảnh kích thước nhỏ, không cần quá nhiều bit để biểu diễn, thì việc sử dụng định dạng bitmap (biểu diễn
+ảnh dưới dạng nhị phân) với số lượng màu các ít sẽ cho file đầu ra dung lượng càng bé, với các chuẩn nén khác như PNG
+sẽ tốn 1 phần dung lượng để chứa HEADER, bảng màu và phần dung lượng này có thể lớn hơn dung lượng của ảnh ở dạng nhị
+phân. Nhưng với ảnh có kích thước càng lớn thì ưu điểm của kiểu nén PNG được thể hiện càng rõ rệt, ngoài việc không
+làm giảm chất lượng màu của ảnh mà có thể giảm dung lượng ảnh xuống hơn 500 lần so với định dạng bitmap24bit (kiểu 
+bitmap duy nhất có thể biểu diễn ảnh mà không làm giảm chất lượng màu ảnh). 
