@@ -10,7 +10,29 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>BTVN_Bai12_AnhQHT</module>
+        <module>BTVN_Bai14_AnhQHT_TrungNT9</module>
     </modules>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.5</version>
+        </dependency>
+
+    </dependencies>
 
 </project>
