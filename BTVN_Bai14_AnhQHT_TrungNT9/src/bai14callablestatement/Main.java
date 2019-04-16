@@ -1,3 +1,5 @@
+package bai14callablestatement;
+
 import java.sql.*;
 
 public class Main {
@@ -12,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         String url = "jdbc:"+database+"://"+host+":"+port+"/"+databaseName;
         try (Connection connection = DriverManager.getConnection(url,dbUsername,dbPassword)) {
-            Class.forName("org.postgresql.Driver");
+//            Class.forName("org.postgresql.Driver");
             CallableStatement callableStatement = connection.prepareCall("select findPersonByName(?);");
             callableStatement.setString(1,"test%");
             ResultSet rs = callableStatement.executeQuery();
@@ -21,8 +23,6 @@ public class Main {
             }
         } catch (SQLException e) {
             System.out.println("Connection failure.");
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
