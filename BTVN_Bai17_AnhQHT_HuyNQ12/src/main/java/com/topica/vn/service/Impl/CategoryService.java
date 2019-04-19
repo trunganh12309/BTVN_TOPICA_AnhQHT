@@ -34,6 +34,8 @@ public class CategoryService implements ICategoryService {
             Category category  = categoryRepository.findById(id).get();
             category.setName(name);
             categoryRepository.save(category);
+            System.out.println("Update category with id = "+id+" success!!!");
+            System.out.println("Category new name is: "+name);
         }else {
             System.out.println("Category with id = "+id+" is not exist!!!");
         }

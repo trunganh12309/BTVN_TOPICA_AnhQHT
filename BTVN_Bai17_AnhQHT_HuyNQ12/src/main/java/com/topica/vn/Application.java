@@ -25,14 +25,16 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        List<Category> categories = categoryService.findByType("type1",1,5);
-//        for(Category category : categories){
-//            System.out.println("Category name is: "+category.getName());
-//        }
-
-        List<Item> items = itemService.findByCategory("cat1",1,5);
-        for (Item i : items){
-            System.out.println(i.getName());
+        List<Category> categories = categoryService.findByType("type1",0,5);
+        for(Category category : categories){
+            System.out.println("Category name is: "+category.getName());
         }
+
+        List<Item> items = itemService.findByCategory("category1",0,5);
+        for (Item i : items){
+            System.out.println("Item name is: "+i.getName());
+        }
+
+        categoryService.updateCategory((long) 1,"category1");
     }
 }

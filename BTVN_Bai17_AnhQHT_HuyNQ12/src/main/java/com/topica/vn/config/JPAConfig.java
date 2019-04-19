@@ -63,11 +63,12 @@ public class JPAConfig {
     Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
-        properties.setProperty("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
+//        properties.setProperty("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
         properties.setProperty("hibernate.format_sql", environment.getProperty("hibernate.format_sql"));
         properties.setProperty("hibernate.default_schema", environment.getProperty("hibernate.default_schema"));
         properties.setProperty("hibernate.enable_lazy_load_no_trans","true");
-        properties.setProperty("spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults","false");
+        properties.setProperty("hibernate.temp.use_jdbc_metadata_defaults","false");
+        properties.setProperty("hibernate.jdbc.lob.non_contextual_creation","true");
 		//properties.setProperty("hibernate.hbm2ddl.auto", "create");
         properties.setProperty("hibernate.hbm2ddl.auto", "none");
         return properties;

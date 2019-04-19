@@ -1,7 +1,6 @@
 package com.topica.vn.repository;
 
 import com.topica.vn.entity.Category;
-import com.topica.vn.entity.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
