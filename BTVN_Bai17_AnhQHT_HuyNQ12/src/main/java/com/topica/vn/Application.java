@@ -30,7 +30,7 @@ public class Application implements CommandLineRunner {
             System.out.println("Category name is: "+category.getName());
         }
 
-        List<Item> items = itemService.findByCategory("category1",0,5);
+        List<Item> items = itemService.findByCategory("cat1",0,5);
         for (Item i : items){
             System.out.println("Item name is: "+i.getName());
         }

@@ -24,8 +24,8 @@ public class Category {
     @OneToMany
     @JoinTable(
             name="ItemCategory",
-            joinColumns = @JoinColumn( name="item_Id"),
-            inverseJoinColumns = @JoinColumn( name="category_Id")
+            joinColumns = @JoinColumn( name="category_id"),
+            inverseJoinColumns = @JoinColumn( name="item_id")
     )
     private List<Item> items = new ArrayList<>();
 }
