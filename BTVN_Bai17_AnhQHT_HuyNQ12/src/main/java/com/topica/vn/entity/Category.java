@@ -19,7 +19,7 @@ public class Category {
 
     @ManyToOne
     @JoinColumn(name = "typeId")
-    private Type types;
+    private Type type;
 
     @OneToMany
     @JoinTable(

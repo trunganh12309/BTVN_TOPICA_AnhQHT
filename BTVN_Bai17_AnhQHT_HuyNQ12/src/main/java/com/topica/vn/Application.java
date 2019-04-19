@@ -35,6 +35,6 @@ public class Application implements CommandLineRunner {
             System.out.println("Item name is: "+i.getName());
         }
 
-        categoryService.updateCategory((long) 1,"category1");
+        categoryService.updateCategory((long) 2,"category2");
     }
 }

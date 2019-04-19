@@ -15,7 +15,9 @@ insert into public.item(id,name) values (4,'item4');
 insert into public.item(id,name) values (5,'item5');
 insert into public.item(id,name) values (6,'item6');
 
-insert into public.itemcategory(item_id,category_id) values (1,1);
-insert into public.itemcategory(item_id,category_id) values (2,2);
-insert into public.itemcategory(item_id,category_id) values (3,3);
-insert into public.itemcategory(item_id,category_id) values (4,4);
+insert into public.itemcategory(category_id,item_id) values (1,1);
+insert into public.itemcategory(category_id,item_id) values (2,2);
+insert into public.itemcategory(category_id,item_id) values (3,3);
+insert into public.itemcategory(category_id,item_id) values (4,4);
+insert into public.itemcategory(category_id,item_id) values (1,5);
+insert into public.itemcategory(category_id,item_id) values (1,6);

@@ -23,7 +23,7 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public List<Category> findByType(String type, int pageIndex, int pageSize) {
-        Page<Category> categories = categoryRepository.findByTypesId(typeRepository.findByName(type).getId(),new PageRequest(pageIndex,pageSize));
+        Page<Category> categories = categoryRepository.findByTypeId(typeRepository.findByName(type).getId(),new PageRequest(pageIndex,pageSize));
         return categories.getContent();
     }
 
