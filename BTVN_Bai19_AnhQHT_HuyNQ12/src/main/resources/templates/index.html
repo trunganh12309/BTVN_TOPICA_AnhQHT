@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <title>IT LAB</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" resource="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script resource="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <th:block th:if="${userName != ''}">
+        <tr>Welcome User <td th:text="${userName}"></td> </tr>
+    </th:block>
+    <th:block th:if="${userName == ''}">
+        <p>Click <a th:href="@{/login}">here</a> to see a greeting.</p>
+    </th:block>
+
+    <form method="get" th:action="@{/home}" th:object="${searchWord}" id="formSubmit">
+        <input type="text" list="languages" id="keyid" th:field="*{content}">
+        <button type="button" class="btn btn-primary btn-sm" id="btnSearch">Search</button>
+        <datalist id="languages" style="max-height: 200px;">
+            <th:block th:each="word : ${allVietnamese}">
+                <option th:value="${word.getContent()}">
+            </th:block>
+        </datalist>
+            <input type="text" id="translated" th:field="*{translate}" style="width: 1000px">
+    </form>
+</body>
+<script>
+    $(document).ready(function () {
+        $('#btnSearch').click(function () {
+            $('#formSubmit').submit();
+        });
+    });
+</script>
+</html>
