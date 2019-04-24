@@ -34,7 +34,7 @@ public class DictionaryController {
             model.addAttribute("searchWord", vietnameseRepository.findByContent(vietnamese.getContent()));
         }
             model.addAttribute("allVietnamese", vietnameseRepository.findAll());
-        return "index";
+        return "test";
     }
 
     //  @RequestMapping(name = "/hello", method = RequestMethod.GET)
