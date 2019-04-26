@@ -14,6 +14,11 @@ public class Vietnamese {
   public Vietnamese() {
   }
 
+  public Vietnamese(String content, String translate){
+    this.translate = translate;
+    this.content = content;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;

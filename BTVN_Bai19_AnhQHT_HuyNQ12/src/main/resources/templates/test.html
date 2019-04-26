@@ -18,7 +18,8 @@
         <a class="navbar-brand" href="#">My Dictionary</a>
         <ul class="navbar-nav ml-auto">
             <th:block th:if="${userName != ''}">
-                <li>Welcome User <a th:text="${userName}"></a> </li>
+                <li> <a class="btn btn-light my-2 my-sm-0" th:text="${userName}"></a> </li>
+                <li><a th:href="@{/logout}" class="btn btn-light my-2 my-sm-0" >Log out</a></li>
             </th:block>
             <th:block th:if="${userName == ''}">
                 <li class="nav-item active">

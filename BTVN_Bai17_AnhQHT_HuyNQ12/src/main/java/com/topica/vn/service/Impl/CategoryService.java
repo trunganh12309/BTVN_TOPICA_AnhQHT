@@ -1,7 +1,6 @@
 package com.topica.vn.service.Impl;
 
 import com.topica.vn.entity.Category;
-import com.topica.vn.entity.Type;
 import com.topica.vn.repository.CategoryRepository;
 import com.topica.vn.repository.TypeRepository;
 import com.topica.vn.service.ICategoryService;

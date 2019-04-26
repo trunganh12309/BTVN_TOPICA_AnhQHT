@@ -15,4 +15,6 @@ public interface VietnameseRepository extends JpaRepository<Vietnamese, Long> {
     Vietnamese findByContent(String content);
 
     List<Vietnamese> findAll();
+
+    Page<Vietnamese> findAll(Pageable pageable);
 }

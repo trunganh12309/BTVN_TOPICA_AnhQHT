@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script resource="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
     <title>Title</title>
 </head>
 <body>
 <h1>This is admin page</h1>
 
+<div class="row" th:if="${vietnameseList != null && !vietnameseList.isEmpty()}">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <table id="link-list" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Content</th>
+                <th>Translate</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="word : ${vietnameseList}">
+                <td th:text="${{word.id}}"></td>
+                <td th:text="${{word.content}}"></td>
+                <td th:text="${{word.translate}}"></td>
+                <td><a th:href="@{/admin/detail/{wordId}(wordId=${word.id})}">Detail</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <nav aria-label="Pagination">
+            <ul class="pagination justify-content-center">
+                <!--<li class="page-item" th:each="pageNumber : ${pageNumbers}">-->
+                    <!--<a class="page-link" th:href="@{|/admin/home/page/${pageNumber}|}" th:text="${pageNumber}"></a>-->
+                <!--</li>-->
+                <li class="page-item" th:if="${vietnamesePage.hasPrevious() and vietnamesePage.number - 1 > 0}">
+                    <a class="page-link" th:href="@{|/admin/home/${vietnamesePage.number -1}|}">Previous</a>
+                </li>
+                <li class="page-item" th:each="pageNumber : ${#numbers.sequence(vietnamesePage.number + 1,vietnamesePage.number + 5)}">
+                    <a class="page-link" th:href="@{|/admin/home/page/${pageNumber}|}" th:text="${pageNumber}">1</a>
+                </li>
+                <li class="page-item" th:if="${vietnamesePage.hasNext()}">
+                    <a class="page-link" th:href="@{|/admin/home/${vietnamesePage.number +1}|}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-md-2"></div>
+</div>
 </body>
 </html>

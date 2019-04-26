@@ -15,6 +15,7 @@
         <module>BTVN_Bai16_AnhQHT_HuyNQ12</module>
         <module>BTVN_Bai17_AnhQHT_HuyNQ12</module>
         <module>BTVN_Bai18_AnhQHT_TrungNT9</module>
+        <module>BTVN_Bai19_AnhQHT_HuyNQ12</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

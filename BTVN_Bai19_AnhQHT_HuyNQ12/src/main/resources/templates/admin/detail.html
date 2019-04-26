@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="get" th:action="@{/home}" th:object="${searchWord}" id="formSubmit">
+    <div class="container">
+        <div class="row m-5">
+            <div class="form-group row">
+                <label class="col-lg-4 col-sm-4 col-form-label">Input your word here</label>
+                <div class="col-lg-6 col-sm-6">
+                    <input type="text" list="languages" id="keyid" th:field="*{content}">
+                    <datalist id="languages" style="max-height: 200px;">
+                        <th:block th:each="word : ${allVietnamese}">
+                            <option th:value="${word.getContent()}">
+                        </th:block>
+                    </datalist>
+                </div>
+                <div class="col-lg-2 col-sm-2">
+                    <button class="btn btn-outline-dark my-2 my-sm-0" type="button" id="btnSearch">Translate</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row m-5">
+            <input type="text" id="translated" th:field="*{translate}" style="width: 1000px">
+        </div>
+    </div>
+</form>
+</body>
+</html>

@@ -18,12 +18,12 @@ public class Category {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "typeId")
+    @JoinColumn(name = "type_Id")
     private Type type;
 
     @OneToMany
     @JoinTable(
-            name="ItemCategory",
+            name="Item_Category",
             joinColumns = @JoinColumn( name="category_id"),
             inverseJoinColumns = @JoinColumn( name="item_id")
     )
