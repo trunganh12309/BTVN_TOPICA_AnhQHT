@@ -33,7 +33,6 @@ public class DatabaseUserDetailService implements UserDetailsService {
       List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
       if (user.getRoles() != null) {
           for (Role role : user.getRoles()) {
-              // ROLE_USER, ROLE_ADMIN,..
               GrantedAuthority authority = new SimpleGrantedAuthority(role.getCode());
               grantList.add(authority);
           }

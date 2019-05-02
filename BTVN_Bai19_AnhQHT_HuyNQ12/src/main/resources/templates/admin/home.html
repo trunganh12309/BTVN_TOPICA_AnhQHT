@@ -32,7 +32,7 @@
                 <td th:text="${{word.id}}"></td>
                 <td th:text="${{word.content}}"></td>
                 <td th:text="${{word.translate}}"></td>
-                <td><a th:href="@{/admin/detail/{wordId}(wordId=${word.id})}">Detail</a></td>
+                <td><a th:href="@{/admin/detail/{wordId}(wordId=${word.id})}">Edit</a></td>
             </tr>
             </tbody>
         </table>
@@ -47,11 +47,14 @@
                 <!--<li class="page-item" th:each="pageNumber : ${pageNumbers}">-->
                     <!--<a class="page-link" th:href="@{|/admin/home/page/${pageNumber}|}" th:text="${pageNumber}"></a>-->
                 <!--</li>-->
-                <li class="page-item" th:if="${vietnamesePage.hasPrevious() and vietnamesePage.number - 1 > 0}">
-                    <a class="page-link" th:href="@{|/admin/home/${vietnamesePage.number -1}|}">Previous</a>
+                <li class="page-item" th:if="${vietnamesePage.hasPrevious() and vietnamesePage.number > 1}">
+                        <a class="page-link" th:href="@{|/admin/home/${vietnamesePage.number - 1}|}">Previous</a>
+                </li>
+                <li class="page-item" th:if="${vietnamesePage.hasPrevious() and vietnamesePage.number == 1}">
+                    <a class="page-link" th:href="@{|/admin/home/1|}">Previous</a>
                 </li>
                 <li class="page-item" th:each="pageNumber : ${#numbers.sequence(vietnamesePage.number + 1,vietnamesePage.number + 5)}">
-                    <a class="page-link" th:href="@{|/admin/home/page/${pageNumber}|}" th:text="${pageNumber}">1</a>
+                    <a class="page-link" th:href="@{|/admin/home/${pageNumber}|}" th:text="${pageNumber}">1</a>
                 </li>
                 <li class="page-item" th:if="${vietnamesePage.hasNext()}">
                     <a class="page-link" th:href="@{|/admin/home/${vietnamesePage.number +1}|}">Next</a>

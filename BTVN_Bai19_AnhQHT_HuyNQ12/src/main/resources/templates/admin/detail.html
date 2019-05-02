@@ -2,32 +2,41 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script resource="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <title>Title</title>
 </head>
 <body>
-<form method="get" th:action="@{/home}" th:object="${searchWord}" id="formSubmit">
+<form method="get" th:action="@{/admin/detail}" th:object="${word}" id="formSubmit">
     <div class="container">
         <div class="row m-5">
             <div class="form-group row">
                 <label class="col-lg-4 col-sm-4 col-form-label">Input your word here</label>
                 <div class="col-lg-6 col-sm-6">
-                    <input type="text" list="languages" id="keyid" th:field="*{content}">
-                    <datalist id="languages" style="max-height: 200px;">
-                        <th:block th:each="word : ${allVietnamese}">
-                            <option th:value="${word.getContent()}">
-                        </th:block>
-                    </datalist>
+                    <input type="text" id="contentId" th:field="*{content}">
+                </div>
+                <label class="col-lg-4 col-sm-4 col-form-label">Translated word</label>
+                <div class="col-lg-6 col-sm-6">
+                    <input type="text" id="translateId" th:field="*{translate}">
                 </div>
                 <div class="col-lg-2 col-sm-2">
-                    <button class="btn btn-outline-dark my-2 my-sm-0" type="button" id="btnSearch">Translate</button>
+                    <button class="btn btn-outline-dark my-2 my-sm-0" th:href="@{|/admin/detail/${word.getId()}|}" type="button" id="btnEdit">Edit</button>
                 </div>
             </div>
         </div>
-
-        <div class="row m-5">
-            <input type="text" id="translated" th:field="*{translate}" style="width: 1000px">
-        </div>
     </div>
 </form>
+<script>
+    $(document).ready(function () {
+        $('#btnEdit').click(function () {
+            $('#formSubmit').submit();
+        });
+    });
+</script>
 </body>
 </html>

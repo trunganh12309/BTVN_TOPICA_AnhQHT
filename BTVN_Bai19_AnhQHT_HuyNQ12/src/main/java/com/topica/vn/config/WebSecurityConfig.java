@@ -43,8 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http
         .authorizeRequests()
-          .antMatchers("/", "/home").permitAll()
-          .anyRequest().authenticated()
+            .antMatchers("/", "/home").permitAll()
         .and()
             .formLogin()
             .loginProcessingUrl("/j_spring_security_check") // Submit URL
@@ -59,8 +58,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .logout()
             .permitAll()
             .logoutUrl("/logout")
-            .logoutSuccessUrl("/login");
-    http.authorizeRequests().antMatchers("/admin/*").access("hasRole('ROLE_ADMIN')");
-    http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
+            .logoutSuccessUrl("/login")
+          .and()
+            .authorizeRequests()
+            .antMatchers("/admin/")
+            .access("hasRole('ADMIN')")
+            .anyRequest()
+            .authenticated()
+          .and()
+            .exceptionHandling()
+            .accessDeniedPage("/403");
+
   }
 }
